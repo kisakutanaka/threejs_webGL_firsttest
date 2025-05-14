@@ -53,11 +53,15 @@ function resizeRendererToDisplaySize(renderer){
 }
 
 function render(){
-    if(resizeRendererToDisplaySize(renderer)){
-        const canvas = renderer.domElement;
-        camera.aspect = canvas.clientWidth / camera.clientHeight;
-        camera.updateProjectionMatrix;
-    }
+    if (resizeRendererToDisplaySize(renderer)) {
+		const canvas = renderer.domElement;
+		camera.aspect = canvas.clientWidth / canvas.clientHeight;
+		camera.updateProjectionMatrix();
+	  }
 
-    renderer.render(scene,camera)
+    //boxを回転させるよ
+	box.rotation.x += 0.01;
+	box.rotation.y += 0.01;
+	
+	renderer.render(scene, camera);
 }
